@@ -6,11 +6,17 @@ document.getElementById('btn-deposit').addEventListener('click', function() {
    const previousDepositTotal = getElementValueById('deposit-total');
    // setting new deposit value.
    const newDepositTotal = previousDepositTotal + newDepositAmount;
-   setTextValueById('deposit-total', newDepositTotal);
+   if (newDepositAmount > 0) {
 
-   // getting previous balance 
-   const previousBalance = getElementValueById('balance');
-   const newBalance = previousBalance + newDepositAmount;
-   // setting new balance
-   setTextValueById('balance', newBalance);
+      setTextValueById('deposit-total', newDepositTotal);
+   
+      // getting previous balance 
+      const previousBalance = getElementValueById('balance');
+      const newBalance = previousBalance + newDepositAmount;
+      // setting new balance
+      setTextValueById('balance', newBalance);
+   }
+   else{
+      alert('Invalid Input! Please enter valid input value.')
+   }
 })
